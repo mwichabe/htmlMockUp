@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            border: 3px solid #964949;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background-color: rgb(199, 199, 199);
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #333;
+        }
+
+        .result-container {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 10px;
+        }
+
+        .keyword {
+            width: calc(100% - 22px);
+            background-color: beige;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Search Results</h2>
+        <div class="result-container" id="resultContainer"></div>
+        <div id="keywordContainer" style="display:none;">
+            <label for="keyword">Keyword:</label>
+            <input class="keyword" type="text" id="keyword" name="keyword" readonly>
+        </div>
+        <div id="authorContainer" style="display:none;">
+            <label for="author">Author:</label>
+            <input class="keyword" type="text" id="author" name="author" readonly>
+        </div>
+    </div>
+
+    <script>
+        // Example search results data
+        const searchResults = [
+            { title: "Book 1", author: "Author A" },
+            { title: "Book 2", author: "Author B" },
+        ];
+
+        // Example search keyword and author
+        const searchKeyword = "HCI";
+        const searchAuthor = "Nielsen";
+
+        // Display search results
+        function displayResults() {
+            const resultContainer = document.getElementById("resultContainer");
+            const keywordContainer = document.getElementById("keywordContainer");
+            const authorContainer = document.getElementById("authorContainer");
+
+            // Display search keyword and author
+            document.getElementById("keyword").value = searchKeyword;
+            document.getElementById("author").value = searchAuthor;
+
+            // Display search results
+            searchResults.forEach(result => {
+                const resultItem = document.createElement("div");
+                resultItem.classList.add("result-item");
+                resultItem.innerHTML = `<strong>${result.title}</strong> by ${result.author}`;
+                resultContainer.appendChild(resultItem);
+            });
+
+            // Show keyword and author containers
+            keywordContainer.style.display = "block";
+            authorContainer.style.display = "block";
+        }
+
+        // Call the displayResults function when the page loads
+        window.onload = displayResults;
+    </script>
+</body>
+</html>

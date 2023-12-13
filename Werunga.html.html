@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for Resource</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 20px;
+            background-color: #f0f0f0; /* Add a light background color */
+        }
+
+        .container {
+            border: 3px solid #964949;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            height: 400px;
+            background-color: rgb(199, 199, 199);
+            border-radius: 10px; /* Add rounded corners */
+        }
+
+        .search-results-container {
+            display: none; /* Initially hidden */
+        }
+
+        h2 {
+            text-align: left;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #333; /* Darken the text color */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #333; /* Darken the text color */
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc; /* Add a border */
+            border-radius: 5px; /* Add rounded corners */
+        }
+
+        button {
+            background-color: beige;
+            color: black;
+            padding: 10px 15px;
+            border: 3px solid #964949;
+            border-radius: 50px;
+            cursor: pointer;
+            float: right;
+        }
+
+        button.cancel {
+            background-color: beige;
+            float: right;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .keyword {
+            width: calc(100% - 22px); /* Adjust width to allow space for borders */
+            background-color: beige;
+            margin: 5px;
+            border: 1px solid #ccc; /* Add a border */
+            border-radius: 5px; /* Add rounded corners */
+        }
+
+        .search {
+            float: right;
+            margin-right: 6px;
+        }
+
+        /* Add some spacing */
+        hr {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border: 0;
+            border-top: 1px solid #964949;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h2>Search for Resource</h2>
+        <hr>
+        <form>
+            <label for="keyword">Keyword:
+                <input class="keyword" type="text" id="keyword" name="keyword" placeholder="HCI" required>
+            </label>
+
+            <label for="title">Title:
+                <input type="text" id="title" name="title" class="keyword">
+            </label>
+
+            <label for="author">Author:
+                <input type="text" id="author" name="author" class="keyword" placeholder="Nielsen">
+            </label>
+
+            <br>
+
+            <button type="button" class="cancel" onclick="cancelAction()">Cancel</button>
+            <button class="search" type="button" onclick="searchAction()">Search</button>
+            <button type="button" onclick="showHelpAction()">Help</button>
+        </form>
+    </div>
+
+    <div class="container search-results-container" id="searchResultsContainer">
+        <h2>Search Results</h2>
+        <!-- Add your search results content here -->
+        <div class="result-item">Result 1</div>
+        <div class="result-item">Result 2</div>
+    </div>
+
+    <script>
+        function cancelAction() {
+            alert("Cancel button clicked");
+    
+        }
+
+        function searchAction() {
+            window.location.href = 'searchResults.html';
+        }
+
+        function showHelpAction() {
+            alert("Help button clicked");
+        }
+    </script>
+</body>
+</html>
